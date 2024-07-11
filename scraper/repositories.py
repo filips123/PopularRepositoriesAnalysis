@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
+from typing import Literal
 
 from github import Github
 from tqdm import tqdm
@@ -104,13 +105,18 @@ class Repository:
     """Whether the repository is archived."""
 
 
-def get_top_repositories(github: Github, start: int = 0, amount: int | None = None) -> list[Repository]:
-    """Get the top repositories by stars count."""
+def get_top_repositories(
+    github: Github,
+    order: Literal["stars", "forks"],
+    start: int = 0,
+    amount: int | None = None,
+) -> list[Repository]:
+    """Get the top repositories by the specified order."""
 
     repositories: list[Repository] = []
 
     end = start + amount if amount else None
-    query = github.search_repositories("stars:>1", sort="stars", order="desc")[start:end]
+    query = github.search_repositories(f"{order}:>1", sort=order, order="desc")[start:end]
 
     for repository in tqdm(query, total=amount or 1020):
         repositories.append(
