@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "popular-repositories-analysis"
+description = "Analyzing popular GitHub repositories for UVP project"
+authors = ["filips123 <projects@filips.si>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.group.scraper.dependencies]
+requests = "^2.32.3"
+beautifulsoup4 = "^4.12.3"
+pygithub = "^2.3.0"
+tqdm = "^4.66.4"
+orjson = "^3.10.6"
+
+[tool.poetry.group.analysis.dependencies]
+# TBA
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+mypy = "^1.10.1"
+ruff = "^0.1.15"
+notebook = "^7.2.1"
+types-requests = "^2.32.0"
+types-beautifulsoup4 = "^4.12.0"
+types-tqdm = "^4.66.0"
+
+[tool.ruff]
+line-length = 110
+select = ["F", "E", "W", "UP", "B", "G", "RUF"]
+ignore = ["E203", "E501", "F401"]
+
+[tool.black]
+line-length = 110
+
+[tool.mypy]
+python_version = "3.12"
+show_column_numbers = true
+show_error_codes = true
+allow_redefinition = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_return_any = true
+warn_unreachable = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

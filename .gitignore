@@ -109,5 +109,8 @@ jspm_packages/
 node_modules/
 web_modules/
 
+# Authentication token
+auth.txt
+
 # Do not ignore .gitkeep files
 !.gitkeep
