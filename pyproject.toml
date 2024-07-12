@@ -9,7 +9,7 @@ python = "^3.12"
 
 [tool.poetry.group.scraper.dependencies]
 requests = "^2.32.3"
-beautifulsoup4 = "^4.12.3"
+beautifulsoup4 = { version = "^4.12.3", extras = ["lxml"] }
 pygithub = "^2.3.0"
 tqdm = "^4.66.4"
 orjson = "^3.10.6"
