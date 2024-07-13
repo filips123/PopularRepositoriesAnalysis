@@ -6,7 +6,7 @@ from github import Github
 from tqdm import tqdm
 
 CHUNK_MARGIN = 50
-CHUNK_SIZE = 500
+CHUNK_SIZE = float("inf")
 
 
 @dataclass
@@ -199,6 +199,10 @@ def get_top_repositories(
                         previous = min(previous, repository.forks_count)
 
                 # Update the progress bar
-                pbar.update()
+                pbar.update(len(repositories) - pbar.n)
+
+                # Break if we are done
+                if len(repositories) == amount:
+                    break
 
     return list(repositories.values())

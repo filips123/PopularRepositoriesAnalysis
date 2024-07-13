@@ -6,7 +6,7 @@ from github import Github
 from tqdm import tqdm
 
 CHUNK_MARGIN = 50
-CHUNK_SIZE = 500
+CHUNK_SIZE = float("inf")
 
 QueryParam = Literal["followers", "repos"]
 OrderParam = Literal["followers", "repositories"]
@@ -156,6 +156,10 @@ def get_top_users(
                         previous = min(previous, user.public_repos)
 
                 # Update the progress bar
-                pbar.update()
+                pbar.update(len(users) - pbar.n)
+
+                # Break if we are done
+                if len(users) == amount:
+                    break
 
     return list(users.values())

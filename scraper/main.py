@@ -33,7 +33,7 @@ def main() -> None:
         token = file.read().strip()
         auth = Auth.Token(token)
 
-    github = Github(auth=auth)
+    github = Github(auth=auth, per_page=100)
 
     if args.debug:
         enable_console_debug_logging()
