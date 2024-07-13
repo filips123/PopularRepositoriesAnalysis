@@ -15,8 +15,7 @@ def main() -> None:
     subparsers = parser.add_subparsers(dest="command")
 
     parser.add_argument("--debug", action="store_true", help="enable request debugging")
-    parser.add_argument("--start", type=int, default=0, help="the initial result offset")
-    parser.add_argument("--amount", type=int, default=None, help="the amount of results")
+    parser.add_argument("--amount", type=int, default=1000, help="the amount of results")
 
     parser_repositories = subparsers.add_parser("repositories", help="scrape the top repositories")
     parser_repositories.add_argument("order", choices=("stars", "forks"))
@@ -45,9 +44,9 @@ def main() -> None:
 
     match args.command:
         case "repositories":
-            data = get_top_repositories(github, args.order, args.start, args.amount)
+            data = get_top_repositories(github, args.order, args.amount)
         case "users":
-            data = get_top_users(github, args.order, args.start, args.amount)
+            data = get_top_users(github, args.order, args.amount)
         case _:
             # This should not normally happen
             raise KeyError("Unknown command")

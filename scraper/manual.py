@@ -5,6 +5,7 @@ import orjson
 import requests
 from bs4 import BeautifulSoup
 
+
 # mypy: ignore-errors
 
 
