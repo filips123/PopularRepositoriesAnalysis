@@ -17,6 +17,7 @@ orjson = "^3.10.6"
 [tool.poetry.group.analysis.dependencies]
 pandas = "^2.2.2"
 numpy = "^2.0.0"
+scipy = "^1.14.0"
 matplotlib = "^3.9.1"
 
 [tool.poetry.group.dev.dependencies]
