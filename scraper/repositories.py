@@ -32,13 +32,13 @@ class Repository:
     """The repository default branch."""
 
     license: str | None
-    """The repository license, if set."""
+    """The repository license, if detected."""
 
     language: str | None
     """The main repository language, if detected."""
 
     languages: dict[str, int]
-    """The all repository languages, if detected."""
+    """The all repository languages with lines of code."""
 
     # == Social Properties
 

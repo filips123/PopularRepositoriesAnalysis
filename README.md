@@ -41,7 +41,7 @@ Each of the commands will take approximately 10–30 minutes to complete.
 The collected data will be stored inside the `data` directory.
 
 There is also an additional HTML scraper, which can collect similar data about a specific repository as the API scraper, but by downloading and parsing HTML.
-However, this scraper is slower, less reliable and cannot collect all data, so it is recommended to use the API scrapers instead.
+However, this scraper is less reliable and cannot collect all data, so it is recommended to use the API scrapers instead.
 
 The HTML scraper can be run with the following command:
 
