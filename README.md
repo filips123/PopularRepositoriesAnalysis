@@ -18,9 +18,7 @@ cd PopularRepositoriesAnalysis
 poetry install
 ```
 
-## Usage
-
-### Scraping Data
+## Scraping Data
 
 Before running the API scrapers, you need to create [a read-only token](https://github.com/settings/tokens/new?description=Popular%20Repositories%20Analysis) and store it inside the `scraper/auth.txt` file.
 
@@ -49,6 +47,11 @@ The HTML scraper can be run with the following command:
 python scrapers/manual.py YOUR-REPOSITORY-URL
 ```
 
-### Analyzing Data
+## Existing Data
 
-TODO
+The repository already provides the following lists:
+
+* Top 5000 repositories by stars, collected on 2024-07-14.
+* Top 5000 repositories by forks, collected on 2024-07-14.
+* Top 5000 users by followers, collected on 2024-07-14.
+* ~~Top 5000 users by repositories, collected on 2024-07-14.~~ *Incorrect due to a GitHub API bug.*
