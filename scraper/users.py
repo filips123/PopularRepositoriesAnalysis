@@ -85,7 +85,7 @@ def find_max_value(
         case "followers":
             return int(query[0].followers)
         case "repositories":
-            return int(query[0].public_repos)
+            return int(query[0].get_repos().totalCount)
 
 
 def get_top_users(
@@ -144,7 +144,7 @@ def get_top_users(
                     # == Counts Properties
                     followers_count=user.followers,
                     following_count=user.following,
-                    public_repositories_count=user.public_repos,
+                    public_repositories_count=user.get_repos().totalCount,
                     public_gists_count=user.public_gists,
                 )
 
@@ -153,7 +153,7 @@ def get_top_users(
                     case "followers":
                         previous = min(previous, user.followers)
                     case "repositories":
-                        previous = min(previous, user.public_repos)
+                        previous = min(previous, user.get_repos().totalCount)
 
                 # Update the progress bar
                 pbar.update(len(users) - pbar.n)
